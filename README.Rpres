@@ -120,7 +120,21 @@ TO-DO
 GIT: Workflows
 ========================================================
 
-TO-DO
+- feature
+- forking
+- gitflow
+
+TO-DO: Incluir diagramas dos fluxos
+
+
+Sintaxe PHP - Requisito Para Aula Prática (Revisão)
+========================================================
+
+- variáveis
+- estruturas condicionais
+- estrutura repetitivas
+- UML (básico)
+- OOP (básico)
 
 
 Prática Symfony
