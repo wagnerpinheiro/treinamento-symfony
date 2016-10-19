@@ -145,25 +145,47 @@ Prática Symfony
 - testar alguns comandos do git
 - funcional x OOP x MVC
 - executando o container docker para o symfony
-- criando um novo projeto
+- criando um novo projeto (composer)
 - configuração do DB
 - definindo um modelo
 - criando um controller
 - implementando a view
+
  
-TO-DO: mais algum item?
-- data-driven?
-- behaviours?
+Symfony: Além do MVC
+========================================================
+- template system
+- Logger
+- Web Debug Toolbar
+- Widgets and Validators
+- Links And The Routing System
+- Forms
+- Emails
+- Caching
+- I18n And L10n
+- Admin Generator
+- Unit And Functional Testing (lime)
+- plugins
+- tasks (cli)
+
 
 
 Finalização
 ========================================================
 
 - Treinamento Symfony 2.0/3.0
+ - Dependency Injection pattern
+ - Packaged as Distributions
+ - Everything is a Bundle in Symfony2
+ - Assetic, Monolog, Twig, Imagine
 
 
 Referências
 ========================================================
 
+- http://symfony.com/legacy/doc/jobeet?orm=Propel
+- http://symfony.com/legacy/doc/gentle-introduction
+- http://symfony.com/legacy/doc/reference
+- http://symfony.com/legacy/doc/more-with-symfony
 - https://github.com/mraible/history-of-web-frameworks-timeline
 - https://en.wikipedia.org/wiki/Comparison_of_web_frameworks
