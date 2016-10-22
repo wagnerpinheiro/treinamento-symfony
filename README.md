@@ -183,19 +183,19 @@ left: 60%
 
 ***
 
-![Infra Webmail](img/git_feature.svg)
+![git feature](img/git_feature.svg)
 
 
 GIT: Gitflow Workflow (releases)
 ========================================================
 
-![Infra Webmail](img/git_gitflow.svg)
+![git gitflow](img/git_gitflow.svg)
 
 
 GIT: Forking Workflow (Github/Gitlab)
 ========================================================
 
-![Infra Webmail](img/git_forking.svg)
+![git forking](img/git_forking.svg)
 
 
 GIT: Forking Workflow (Github/Gitlab)
@@ -281,7 +281,7 @@ TO-DO: Incluir diagrama Itil + Scrum
 Gitflow Alternative
 ========================================================
 
-![Infra Webmail](img/git_gitflow_alternative.svg)
+![gitflow alternative](img/git_gitflow_alternative.svg)
 
 
 Caso de Uso: Implementações e Solução de Bugs Zeus
