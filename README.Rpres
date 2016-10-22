@@ -138,7 +138,7 @@ GIT: Workflows
 GIT: Centralized Workflow
 ========================================================
 
-![Infra Webmail](img/git_centralized.svg)
+![git centralized](img/git_centralized.png)
 
 
 GIT: Centralized Workflow (like SVN)
