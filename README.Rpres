@@ -7,13 +7,26 @@ date: Novembro de 2016
 Tópicos
 ========================================================
 
+Parte 1: Técnica
 - PHP 
 - Frameworks web
 - Symfony
 - Boas Práticas
 - GIT (Workflows)
 - hands-on: Symfony 1.4
-- Case Mandic
+
+***
+
+Parte 2: Devel Mandic
+- Quem Somos
+- Ciclo de Vida
+- Estudo de casos do dia-a-dia
+
+
+Parte 1: Introdução Técnica
+========================================================
+
+![The History of Web Frameworks](img/history-of-web-frameworks-timeline.png)
 
 
 PHP (- custo + benefícios)
@@ -49,20 +62,12 @@ Evoluiu Personal Home Page -> Hypertext Preprocessor
 
 Frameworks Web
 ========================================================
-
-Timeline das versões estáveis
-
-![The History of Web Frameworks](img/history-of-web-frameworks-timeline.png)
-
-
-Frameworks Web
-========================================================
 left: 70%
 
 Contexto
 - Spring - Java (10/2002)
-- Django - Python (07/2005)
-- Ruby on Rails - Ruby (12/2005)
+- Django - Python (10/2003)
+- Ruby on Rails - Ruby (07/2004)
 - CakePhp (04/2005)
 - Symfony (10/2005) 
 - Zend Framework (03/2006)
@@ -83,11 +88,13 @@ Symfony
 ========================================================
 
 - Projeto iniciado em 2004 pelo Fabio Potencier para a SensioLabs;
-- Boas práticas MVC e OOP
-- Alinhado com outros frameworks
 - php 5.x
+- Boas práticas MVC e OOP
+- Alinhado com outros frameworks (Ruby on Rails, Django, Spring...)
+- customização (base para o Silex)
+- Softwares: Askeet (Q&A), Delicious (Bookmarks), Yahoo Bookmarks, OpenSky (Social Shop), eRepublik (MMOG), eZ Publish (CMS), Blaise (ERP)
+- Componentes: Drupal 8 & phpBB
 
-TO-DO: detalhar
 
 
 Boas práticas OOP
@@ -118,12 +125,48 @@ Boas práticas OOP: SOLID
 GIT
 ========================================================
 
-TO-DO
+- 2005, Linus Torvalds (Kernel Linux) -> Junio Hamano (maintainer)
+- sistema de controle distribuído 
+- cada repositorio possui uma cópia completa do histórico e versionamento
 
-GIT: Comandos
+GIT: Comandos (git --help)
 ========================================================
 
-TO-DO
+<small>
+start:
+- clone
+- init
+
+work files/dir:
+- add
+- mv
+- reset
+- rm
+
+examine history & state:
+- log
+- show
+- status
+
+</small>
+
+***
+<small>
+history:
+- branch
+- checkout
+- commit
+- diff
+- merge
+- rebase
+- tag
+
+collaborate:
+- fetch
+- pull
+- push
+
+</small>
 
 
 GIT: Workflows
@@ -265,17 +308,38 @@ Symfony: Além do MVC
 - yaml
 
 
-Infra Webmail
+Parte 2: Devel Mandic
 ========================================================
 
+
+Devel Linux (Histórico): [MMM/Zeus](https://www.youtube.com/watch?v=L9OkY3ljOTc)
+
+
+Quem somos: [Equipe Devel](https://my.mandic.net.br/Colaborador/Organograma/index2.php)
+
+
+
+
+Ciclo de Vida Devel: ITIL (Transição)
+========================================================
+
+![Itil](img/itil-configuracao-mudanca-liberacao-v0.1.png)
+
+
+Ciclo de Vida Devel Linux: ITIL + Scrum
+========================================================
+
+![Itil+Scrum](img/scrum-itil.png)
+
+Ferramentas:
+- Trac + Agilo
+- Gitlab
+
+
+Gestão de Configuração: Infra Webmail
+========================================================
 
 ![Infra Webmail](img/infra-email-alto-nivel-v0.2.png)
-
-
-Ciclo de Vida Desenvolvimento
-========================================================
-
-TO-DO: Incluir diagrama Itil + Scrum
 
 
 Gitflow Alternative
@@ -288,7 +352,7 @@ Caso de Uso: Implementações e Solução de Bugs Zeus
 ========================================================
 
 - Demonstração do source do Zeus
-- Troubleshooting
+- Troubleshooting (Chrome DevTools - F12)
 - Implementação do drag-n-drop
 - Melhoria do suporte ao TNEF
 
@@ -296,9 +360,13 @@ Caso de Uso: Implementações e Solução de Bugs Zeus
 Finalização
 ========================================================
 
+- Frontend (ExtJS) & UX
+- Outros Projetos (Workqueue, Perl, Webdav...)
+- Suporte InterDevel (impactos)
 - DevOps (deploy, arquitetura, docker...)
-
-- TDD & CI (Jenkins | Jira)
+- DBA (PostgreSQL, Memcached, MongoDB, MySQL...)
+- Análise estatística dos dados/eventos (data science)
+- TDD, CI, CD (Lime, Test::More, Gitlab-CI, Jenkins...)
 
 - Treinamento Symfony 2.0/3.0
  - Dependency Injection pattern + Microservices
@@ -319,6 +387,7 @@ Referências
 - https://en.wikipedia.org/wiki/Comparison_of_web_frameworks
 - https://slack.engineering/taking-php-seriously-cf7a60065329#.x1565p6jn
 - https://www.atlassian.com/git/tutorials/comparing-workflows
+- http://blog.itil.org/2014/07/allgemein/integrating-agile-and-itsm/
 - http://fabien.potencier.org
 - http://martinfowler.com
 
