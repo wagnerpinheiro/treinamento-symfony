@@ -282,6 +282,11 @@ Prática Symfony
 - criando um controller
 - implementando a view
 
+Prática Symfony
+========================================================
+
+![hands-on](img/hands-on-symfony-v0.1.png)
+
  
 Symfony: Além do MVC
 ========================================================
