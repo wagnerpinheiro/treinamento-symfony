@@ -1,0 +1,28 @@
+version: '2'
+services:
+  web:
+    image: nginx
+    ports:
+      - "81:81"
+    volumes:
+      - ./src/:/var/src/
+      - ./site.conf:/etc/nginx/conf.d/site.conf
+    depends_on:
+      - php-fpm
+    links:
+      - php-fpm
+  php-fpm:
+    image: php:5.6-fpm
+    volumes:
+      - ./src/:/var/src/
+    depends_on:
+      - mysql
+    links:
+      - mysql
+  mysql:
+    image: mysql:5.5
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_DATABASE=symfony
