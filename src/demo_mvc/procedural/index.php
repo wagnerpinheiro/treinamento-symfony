@@ -16,6 +16,35 @@
 <body>
 
 <?php require_once('../../menu.php'); ?>
+<?php require_once('../../config.php'); ?>
+
+<?php
+
+//função para efeito didatico
+function saveFuncionario($pdo, $nome, $email, $departamento_id, $nascimento){
+
+	//conversão do formato da data de nascimento
+	if($nascimento){
+		$date = DateTime::createFromFormat('d/m/Y', $nascimento);
+		$nascimento = $date->format('Y-m-d');
+	}
+
+	$stmt = $pdo->prepare("INSERT INTO funcionarios (nome, email, departamento_id, nascimento) VALUES (:nome, :email, :departamento_id, :nascimento)");
+	
+	return $stmt->execute(
+		array(
+			':nome' => $nome, 
+			':email' => $email, 
+			':departamento_id' => $departamento_id, 
+			':nascimento' => $nascimento
+		)
+	);
+}
+
+if($_POST['nome']){
+	saveFuncionario($pdo, $_POST['nome'], $_POST['email'], $_POST['departamento_id'], $_POST['nascimento']);
+} 
+?>
   
 <h1>Demo: Form Procedural</h1>
 
@@ -32,11 +61,15 @@
 	  </div>
 	  <div class="form-group">
 	    <label for="departamento">Departamento:</label>
-	    <select class="form-control" id="departamento" name="departamento">
+	    <select class="form-control" id="departamento" name="departamento_id">
 	    	<option value=""></option>
-		    <option value="1">TI</option>
-		    <option value="2">Financeiro</option>
-		    <option value="3">Comercial</option>		    
+	    	<?php	    	
+	    	$sql = "SELECT * FROM departamentos order by departamento asc";	    	
+	    	$departamentos = $pdo->query($sql);
+	    	foreach ($departamentos as $dpto){
+	    		echo('<option value="' . $dpto['id'] . '">' . $dpto['departamento'] . '</option>');
+	    	}
+	    	?>
 		  </select>
 	  </div>
 	  <div class="form-group">
@@ -70,7 +103,7 @@
 <div class="container">
   <h2>Lista de Funcionários</h2>
   <table class="table table-striped table-hover">
-    <thead>
+    <thead>    	
       <tr>
         <th>Nome</th>
         <th>Departamento</th>
@@ -78,10 +111,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>TI</td>
-        <td>xxxx</td>
+   		<?php 
+    		$sql = "SELECT F.nome, D.departamento, F.nascimento FROM funcionarios F left join departamentos D on (D.id=F.departamento_id) order by nome asc";	    	
+	    	$funcionarios = $pdo->query($sql);
+	    	foreach ($funcionarios as $func){
+	   	?>
+		   	<tr>
+		   		<td><?=$func['nome']?></td>
+		   		<td><?=$func['departamento']?></td>
+		   		<td><?=date('d/m/Y', strtotime($func['nascimento']))?></td>
+		   	</tr>
+	   	<?php	    	
+	    	}
+	   	?>
       </tr>      
     </tbody>
   </table>
