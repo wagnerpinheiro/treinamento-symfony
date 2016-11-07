@@ -12,7 +12,7 @@ services:
     links:
       - php-fpm
   php-fpm:
-    image: php:5.6-fpm
+    build: docker/php-fpm
     volumes:
       - ./src/:/var/src/
     depends_on:

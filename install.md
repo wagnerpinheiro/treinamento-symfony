@@ -2,6 +2,7 @@
 
 ## Ubuntu 16.04
 
+### Docker do respositorio ubuntu
 ```
 sudo apt-get install docker
 sudo apt-get install python-pip
@@ -9,7 +10,7 @@ pip install --upgrade pip
 pip install docker-compose
 ```
 
-Docker 1.12 from official repository:
+### Docker 1.12 from official repository:
 ```
 sudo apt-get update
 sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
@@ -26,17 +27,20 @@ docker run hello-world
 ```
 
 
-docker-compose:
+### docker-compose:
 ```
 curl -L https://github.com/docker/compose/releases/download/1.8.1/run.sh > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 
-MySQL Cli:
+### MySQL Cli:
 
 ```
 sudo apt install mysql-client-core-5.7
 ```
+
+### Build do php-fpm customizado
+docker build docker/php-fpm/ -t php:5.6-fpm-pdo
 
 ## Centos
 
