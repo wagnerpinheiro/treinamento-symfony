@@ -1,29 +1,26 @@
-<?php
-$sections = array(
-	'Procedural'=>'./demo_mvc/procedural',
-	'OOP'=>'./demo_mvc/oop',
-	//'Funcional'=>'./demo_mvc/funcional',
-	'MVC'=>'./demo_mvc/mvc',	
-	'Exercicios'=>'./demo_mvc/exercicios'
-);
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Treinamento Symfony</title>  
+  <meta charset="utf-8">
+  <!-- -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+</head>
+<body>
 
-echo("<h1>Hello World: Treinamento Symfony</h1>");
-if(!$sections){
-	die('Seções não definidas');
-}
+
+<?php
+require_once('menu.php');
 ?>
 
-<h2>Demos</h2>
-<ul>
-<?php
-foreach($sections as $section=>$url){
-	echo("<li><a href='$url'>$section</a></li>");
-}
-?>
-</ul>
+<h1><?php echo("Hello World!")?></h1>
 
-<hr />
+<h2>PHP Info:</h2>
+<iframe frameborder="0" style="width: 100%; height: 100%; position:absolute;" src="phpinfo.php"></iframe>
 
-<h2>Anexo 1: PHP Info</h2>
-<?php
-phpinfo();
+</body>
+</html>
