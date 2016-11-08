@@ -15,33 +15,79 @@
 </head>
 <body>
 
+<?php require_once('Database.class.php'); ?>
+<?php require_once('Departamentos.class.php'); ?>
+<?php require_once('Funcionarios.class.php'); ?>
 <?php require_once('../../menu.php'); ?>
 
-<h1>Demo: Form OOP</h1>
+<?php
+
+//função para efeito didatico
+function saveFuncionario($pdo, $nome, $email, $departamento_id, $nascimento){
+
+  //conversão do formato da data de nascimento
+  if($nascimento){
+    $date = DateTime::createFromFormat('d/m/Y', $nascimento);
+    $nascimento = $date->format('Y-m-d');
+  }else{
+    $nascimento = null; //força null no db
+  }
+
+  $stmt = $pdo->prepare("INSERT INTO funcionarios (nome, email, departamento_id, nascimento) VALUES (:nome, :email, :departamento_id, :nascimento)");
+  
+  return $stmt->execute(
+    array(
+      ':nome' => $nome, 
+      ':email' => $email, 
+      ':departamento_id' => $departamento_id, 
+      ':nascimento' => $nascimento
+    )
+  );
+}
+
+if($_POST['nome']){
+    $funcionario = new Funcionarios();
+    $funcionario->setNome($_POST['nome']);
+    $funcionario->setEmail($_POST['email']); 
+    $funcionario->setDepartamento_id($_POST['departamento_id']);
+    $funcionario->setNascimento($_POST['nascimento'], 'd/m/Y');
+    $funcionario->save();
+} 
+?>
+  
+<h1>Demo 2: Backend Orientado a Objeto (OOP)</h1>
+
+<p>Cadastro de funcionários com o backend OOP, contendo classe de manipulação do 
+    banco de dados (Database.class) que mapeia os registros com classe de objetos 
+    (Funcionarios, Departamentos...) [<a targe="_blank" href="<?=$menu['Sources']['2. OOP']?>">source</a>]</p>
 
 <div class="container">
-	<h2>Cadastro Funcionário</h2>
-	<form action="index.php" method="post">
-	  <div class="form-group">
-	  	<label for="nome">Nome:</label>
-	    <input type="text" class="form-control" id="nome" name="nome">
-	  </div>
-	  <div class="form-group">  
-	    <label for="email">Email:</label>
-	    <input type="email" class="form-control" id="email" name="email">
-	  </div>
-	  <div class="form-group">
-	    <label for="departamento">Departamento:</label>
-	    <select class="form-control" id="departamento" name="departamento">
-	    	<option value=""></option>
-		    <option value="1">TI</option>
-		    <option value="2">Financeiro</option>
-		    <option value="3">Comercial</option>		    
-		  </select>
-	  </div>
-	  <div class="form-group">
-	    <label for="nascimento">Nascimento:</label>
-	    <div class='input-group date' id='nascimento'>	    	
+  <h2>Cadastro de Funcionário</h2>
+  <form action="index.php" method="post">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" class="form-control" id="nome" name="nome">
+    </div>
+    <div class="form-group">  
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="departamento">Departamento:</label>
+      <select class="form-control" id="departamento" name="departamento_id">
+        <option value=""></option>
+        <?php               
+        $departamentos = Database::getInstance()->fetchCollection(Departamentos::TABLENAME, null , 'departamento');
+        foreach ($departamentos as $dpto){
+          /*@var $dpto Departamentos */
+          echo('<option value="' . $dpto->getId() . '">' . $dpto->getDepartamento() . '</option>');
+        }
+        ?>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="nascimento">Nascimento:</label>
+      <div class='input-group date' id='nascimento'>        
             <input type='text' class="form-control" id="nascimento2" name="nascimento" />
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-time"></span>
@@ -50,19 +96,19 @@
         <script type="text/javascript">
             $(function () {
                 $('#nascimento').datepicker({
-                	format: 'dd/mm/yyyy',
-			    	language: 'pt-BR',
-			    	weekStart: 0,
-			    	startDate:'0d',
-			    	todayHighlight: true             	
+                  format: 'dd/mm/yyyy',
+            language: 'pt-BR',
+            weekStart: 0,
+            startDate:'0d',
+            todayHighlight: true              
                 });
             });
         </script>
-	  </div>
-	  <button type="submit" class="btn btn-default">Salvar</button>
-	</form>
+    </div>
+    <button type="submit" class="btn btn-default">Salvar</button>
+  </form>
 
-	
+  
 </div>
 
 <hr />
@@ -70,7 +116,7 @@
 <div class="container">
   <h2>Lista de Funcionários</h2>
   <table class="table table-striped table-hover">
-    <thead>
+    <thead>     
       <tr>
         <th>Nome</th>
         <th>Departamento</th>
@@ -78,10 +124,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>TI</td>
-        <td>xxxx</td>
+      <?php         
+        $funcionarios = Database::getInstance()->fetchCollection(Funcionarios::TABLENAME, null, 'nome');
+        foreach ($funcionarios as $func){
+        /* @var $func Funcionarios */
+      ?>
+        <tr>
+            <td><?=$func->getNome()?></td>
+            <td><?=$func->getDepartamentos()?$func->getDepartamentos()->getDepartamento():''?></td>
+            <td><?=$func->getNascimento('d/m/Y')?></td>
+        </tr>
+      <?php       
+        }
+      ?>
       </tr>      
     </tbody>
   </table>
@@ -91,4 +146,3 @@
 
 </body>
 </html>
-

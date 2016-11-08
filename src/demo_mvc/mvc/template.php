@@ -17,7 +17,8 @@
 
 <?php require_once('../../menu.php'); ?>
   
-<h1>Demo: Form MVC</h1>
+<h1>Demo 3: Backend MVC [em desenvolvimento]</h1>
+<p>Cadastro de funcionários com o backend seguindo o padrão de arquitetura MVC (Model-View-Controller)[<a targe="_blank" href="<?=$menu['Sources']['3. MVC']?>">source</a>]</p>
 
 <div class="container">
 	<h2>Cadastro Funcionário</h2>

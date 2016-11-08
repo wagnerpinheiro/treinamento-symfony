@@ -48,10 +48,12 @@ if($_POST['nome']){
 } 
 ?>
   
-<h1>Demo: Form Procedural</h1>
+<h1>Demo 1: Backend Procedural</h1>
+
+<p>Cadastro de funcionários com o backend procedural [<a targe="_blank" href="<?=$menu['Sources']['1. Procedural']?>">source</a>]</p>
 
 <div class="container">
-	<h2>Cadastro Funcionário</h2>
+	<h2>Cadastro de Funcionário</h2>
 	<form action="index.php" method="post">
 	  <div class="form-group">
 	  	<label for="nome">Nome:</label>

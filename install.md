@@ -44,7 +44,31 @@ docker build docker/php-fpm/ -t php:5.6-fpm-pdo
 
 
 
-## Centos
+## Centos 6.4 (final)
 
+### dependencias
+```
+sudo yum update
+yum install git mysql
+```
+
+### Docker
+```
+curl -fsSL https://get.docker.com/ | sh
+sudo systemctl enable docker.service
+sudo systemctl start docker
+sudo docker run --rm hello-world
+
+sudo groupadd docker
+sudo usermod -aG docker your_username`
+docker run --rm hello-world
+sudo systemctl enable docker
+```
+
+### Docker-compose
+
+curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)" > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose --version
 
 

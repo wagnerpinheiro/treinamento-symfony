@@ -17,9 +17,10 @@
 require_once('menu.php');
 ?>
 
-<h1><?php echo("Hello World!")?></h1>
+<h1><?php echo("Welcome!")?></h1>
 
 <h2>PHP Info:</h2>
+<p>Configurações do PHP-FPM rodando sobre o Docker (visualização apenas para fins didáticos)</p>
 <iframe frameborder="0" style="width: 100%; height: 100%; position:absolute;" src="phpinfo.php"></iframe>
 
 </body>

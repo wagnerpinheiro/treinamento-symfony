@@ -6,18 +6,18 @@ $v = '1.4';
 
 $menu = array(
   'Demos' => array(
-    'Procedural'=>'/demo_mvc/procedural',
-    'OOP'=>'/demo_mvc/oop',
+    '1. Procedural'=>'/demo_mvc/procedural',
+    '2. OOP'=>'/demo_mvc/oop',
     //'Funcional'=>'./demo_mvc/funcional',
-    'MVC'=>'/demo_mvc/mvc',	
-    'Symfony'=>'/symfony_app'    
+    '3. MVC'=>'/demo_mvc/mvc',	
+    '4. Symfony'=>'/'    
   ),
   'Sources' => array(
-    'Procedural'=>'https://github.com/wagnerpinheiro/treinamento-symfony/tree/feature/02-init-env/src/demo_mvc/procedural',
-    'OOP'=>'https://github.com/wagnerpinheiro/treinamento-symfony/tree/feature/02-init-env/src/demo_mvc/oop',    
+    '1. Procedural'=>'https://github.com/wagnerpinheiro/treinamento-symfony/tree/feature/02-init-env/src/demo_mvc/procedural',
+    '2. OOP'=>'https://github.com/wagnerpinheiro/treinamento-symfony/tree/feature/02-init-env/src/demo_mvc/oop',    
     //'Funcional'=>'./demo_mvc/funcional',
-    'MVC'=>'https://github.com/wagnerpinheiro/treinamento-symfony/tree/feature/02-init-env/src/demo_mvc/mvc',
-    'Symfony' => 'https://github.com/wagnerpinheiro/treinamento-symfony'
+    '3. MVC'=>'https://github.com/wagnerpinheiro/treinamento-symfony/tree/feature/02-init-env/src/demo_mvc/mvc',
+    '4. Symfony' => 'https://github.com/wagnerpinheiro/treinamento-symfony'
   )
 );
 
@@ -64,7 +64,7 @@ if(!$menu){
         </li>
 
         <?php } ?>     
-        <li><a href="#">Exercícios</a></li>
+        <li><a href="/">Exercícios</a></li>
       </ul>      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
