@@ -53,7 +53,7 @@ Evoluiu Personal Home Page -> Hypertext Preprocessor
 - type hinting (php5)
 - Scalar Type Hints (php7)
 - Return Type Declarations (php7)
-- inconcistências na biblioteca padrão
+- inconsistências na biblioteca padrão
 - passagem de parâmetro por valor (primitivas) ou referência (obj)
 
 
@@ -127,7 +127,7 @@ GIT
 
 - 2005, Linus Torvalds (Kernel Linux) -> Junio Hamano (maintainer)
 - sistema de controle distribuído 
-- cada repositorio possui uma cópia completa do histórico e versionamento
+- cada repositório possui uma cópia completa do histórico e versionamento
 
 GIT: Comandos (git --help)
 ========================================================
@@ -271,8 +271,8 @@ Prática Symfony
 - linux
 - checkout do github
 - testar alguns comandos do git
-- funcional x OOP x MVC
 - executando o container docker para o symfony
+- procedural x OOP x MVC
 
 ***
 
