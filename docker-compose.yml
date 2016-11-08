@@ -6,6 +6,7 @@ services:
       - "81:81"
     volumes:
       - ./src/:/var/src/
+      - ./README.html:/var/src/README.html
       - ./site.conf:/etc/nginx/conf.d/site.conf
     depends_on:
       - php-fpm
