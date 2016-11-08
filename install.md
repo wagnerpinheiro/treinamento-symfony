@@ -42,6 +42,8 @@ sudo apt install mysql-client-core-5.7
 ### Build do php-fpm customizado
 docker build docker/php-fpm/ -t php:5.6-fpm-pdo
 
+
+
 ## Centos
 
 

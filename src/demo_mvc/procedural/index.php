@@ -27,6 +27,8 @@ function saveFuncionario($pdo, $nome, $email, $departamento_id, $nascimento){
 	if($nascimento){
 		$date = DateTime::createFromFormat('d/m/Y', $nascimento);
 		$nascimento = $date->format('Y-m-d');
+	}else{
+		$nascimento = null; //força null no db
 	}
 
 	$stmt = $pdo->prepare("INSERT INTO funcionarios (nome, email, departamento_id, nascimento) VALUES (:nome, :email, :departamento_id, :nascimento)");
@@ -119,7 +121,7 @@ if($_POST['nome']){
 		   	<tr>
 		   		<td><?=$func['nome']?></td>
 		   		<td><?=$func['departamento']?></td>
-		   		<td><?=date('d/m/Y', strtotime($func['nascimento']))?></td>
+		   		<td><?=$func['nascimento']?date('d/m/Y', strtotime($func['nascimento'])):''?></td>
 		   	</tr>
 	   	<?php	    	
 	    	}

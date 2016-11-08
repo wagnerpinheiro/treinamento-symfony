@@ -2,18 +2,21 @@ version: '2'
 services:
   web:
     image: nginx
+    container_name: symfony-web
     ports:
       - "81:81"
     volumes:
       - ./src/:/var/src/
       - ./README.html:/var/src/README.html
       - ./site.conf:/etc/nginx/conf.d/site.conf
+      - ./config/.htpasswd:/etc/nginx/auth.htpasswd
     depends_on:
       - php-fpm
     links:
       - php-fpm
   php-fpm:
     build: docker/php-fpm
+    container_name: symfony-php-fpm
     volumes:
       - ./src/:/var/src/
     depends_on:
@@ -22,6 +25,7 @@ services:
       - mysql
   mysql:
     image: mysql:5.5
+    container_name: symfony-mysql
     ports:
       - "3307:3306"
     environment:
