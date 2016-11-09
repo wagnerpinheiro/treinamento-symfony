@@ -44,7 +44,7 @@ docker build docker/php-fpm/ -t php:5.6-fpm-pdo
 
 
 
-## Centos 6.4 (final)
+## Centos 6/7
 
 ### dependencias
 ```

@@ -21,30 +21,6 @@
 <?php require_once('../../menu.php'); ?>
 
 <?php
-
-//função para efeito didatico
-function saveFuncionario($pdo, $nome, $email, $departamento_id, $nascimento){
-
-  //conversão do formato da data de nascimento
-  if($nascimento){
-    $date = DateTime::createFromFormat('d/m/Y', $nascimento);
-    $nascimento = $date->format('Y-m-d');
-  }else{
-    $nascimento = null; //força null no db
-  }
-
-  $stmt = $pdo->prepare("INSERT INTO funcionarios (nome, email, departamento_id, nascimento) VALUES (:nome, :email, :departamento_id, :nascimento)");
-  
-  return $stmt->execute(
-    array(
-      ':nome' => $nome, 
-      ':email' => $email, 
-      ':departamento_id' => $departamento_id, 
-      ':nascimento' => $nascimento
-    )
-  );
-}
-
 if($_POST['nome']){
     $funcionario = new Funcionarios();
     $funcionario->setNome($_POST['nome']);
