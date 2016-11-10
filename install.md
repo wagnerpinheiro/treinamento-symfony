@@ -40,19 +40,21 @@ sudo apt install mysql-client-core-5.7
 ```
 
 ### Build do php-fpm customizado
+```
 docker build docker/php-fpm/ -t php:5.6-fpm-pdo
-
-
+```
 
 ## Centos 6/7
 
 ### dependencias
+
 ```
 sudo yum update
-yum install git mysql
+yum install git mysql php
 ```
 
 ### Docker
+
 ```
 curl -fsSL https://get.docker.com/ | sh
 sudo systemctl enable docker.service
@@ -67,8 +69,16 @@ sudo systemctl enable docker
 
 ### Docker-compose
 
+```
 curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)" > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 docker-compose --version
+```
 
+## Symfony
 
+### Composer
+
+```
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+```
