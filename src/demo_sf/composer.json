@@ -1,0 +1,18 @@
+{
+    "name": "root/demo_sf",
+    "type": "project",
+    "config": {
+      "vendor-dir": "lib/vendor"
+    },
+    "require": {
+        "symfony/symfony1": "1.4.*",
+        "swiftmailer/swiftmailer": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wagner Pinheiro",
+            "email": "wagner.pinheiro@mandic.net.br"
+        }
+    ]
+}
