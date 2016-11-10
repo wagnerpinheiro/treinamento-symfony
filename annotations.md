@@ -27,6 +27,11 @@ mysql -h 127.0.0.1 -P 3307 -u root symfony < data/demo_mvc.sql
 
 ### 3. Init app
 
+create branch:
+```
+git checkout -b hotfix/03-my-init-app
+```
+
 3.1 - Console:
 
 ```
@@ -97,6 +102,9 @@ vim apps/frontend/config/routing.yml
 
 http://localhost:81/demo_sf/web/frontend_dev.php
 ```
+
+Commit All!
+
 
 ### 4. Model
 
