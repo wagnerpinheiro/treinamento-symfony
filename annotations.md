@@ -108,12 +108,86 @@ Commit All!
 
 ### 4. Model
 
+create branch:
+```
+git checkout -b hotfix/04-my-model
+```
+
 4.1 - Definindo o DB:
 
 ```
-php symfony configure:database "mysql:host=127.0.0.1;dbname=symfony" root
+php symfony configure:database "mysql:host=mysql;port=3306;dbname=symfony" root
+php symfony configure:database "mysql:host=127.0.0.1;port=3307;dbname=symfony" root --env="cli"
 vim config/databases.yml
 ```
+
+4.2 - definindo o schema
+```
+php symfony propel:build-schema
+vim config/schema.yml
+```
+
+4.3 - Criando as tabelas
+```
+php symfony propel:build-sql
+vim data/sql/lib.model.schema.sql
+# php symfony propel:insert-sql
+```
+
+4.4 - gerando as classes do modelo
+```
+php symfony propel:build-model
+ls -R lib/model/
+vim lib/model/map/FuncionariosTableMap.php
+vim lib/model/om/BaseFuncionarios.php
+vim lib/model/om/BaseFuncionariosPeer.php
+vim lib/model/Funcionarios.php
+```
+
+Add regra de negócio:
+```
+public function setEmail($v) {
+    if(!preg_match('/.*@.*/', $v)){
+        throw new Exception('Email Inválido');
+    }
+    parent::setEmail($v);
+}
+```
+
+
+```
+vim lib/model/FuncionariosPeer.php
+```
+
+Add query:
+```
+public static function doListFuncionarios(\Criteria $criteria = null, \PropelPDO $con = null) {
+    if($criteria){
+        $c = clone $criteria;
+    }else{
+        $c = new Criteria(self::TABLE_NAME);
+    }
+    
+    $c->addJoin(DepartamentosPeer::ID, FuncionariosPeer::DEPARTAMENTO_ID);
+    $c->add(FuncionariosPeer::NOME, null, Criteria::ISNOTNULL);
+    $c->addAscendingOrderByColumn(FuncionariosPeer::NOME);
+    
+    return self::doSelect($c, $con);        
+}
+```
+
+Commit All!
+
+### 5. Controller
+
+git checkout -b hotfix/05-my-controller
+
+http://localhost:81/demo_sf/web/index.php/main/saveFuncionario?nome=Wagner
+
+
+
+### 6. View
+
 
 
 --------------

@@ -50,7 +50,7 @@ docker build docker/php-fpm/ -t php:5.6-fpm-pdo
 
 ```
 sudo yum update
-yum install git mysql php
+yum install git mysql php php-pdo php-pdo-mysql
 ```
 
 ### Docker
