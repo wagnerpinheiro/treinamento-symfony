@@ -12,9 +12,16 @@ all:
     class: sfPropelDatabase
     param:
       classname: PropelPDO
-      dsn: 'mysql:host=127.0.0.1;dbname=symfony'
+      dsn: 'mysql:host=mysql;port=3306;dbname=symfony'
       username: root
       password: null
       encoding: utf8
       persistent: true
       pooling: true
+cli:
+  propel:
+    class: sfPropelDatabase
+    param:
+      dsn: 'mysql:host=127.0.0.1;port=3307;dbname=symfony'
+      username: root
+      password: null
