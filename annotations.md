@@ -182,12 +182,18 @@ Commit All!
 
 git checkout -b hotfix/05-my-controller
 
-http://localhost:81/demo_sf/web/index.php/main/saveFuncionario?nome=Wagner
+5.1 Alterar index
+
+5.2 Criar controller safveFuncionario: http://localhost:81/demo_sf/web/index.php/main/saveFuncionario?nome=Wagner
 
 
 
 ### 6. View
 
+6.1 Alterar View
+
+
+## 7. modulo admin
 
 
 --------------
