@@ -10,7 +10,7 @@ $menu = array(
     '2. OOP'=>'/demo_mvc/oop',
     //'Funcional'=>'./demo_mvc/funcional',
     '3. MVC'=>'/demo_mvc/mvc',	
-    '4. Symfony'=>'/'    
+    '4. Symfony'=>'/demo_sf/web/frontend_dev.php/main'    
   ),
   'Sources' => array(
     '1. Procedural'=>'https://github.com/wagnerpinheiro/treinamento-symfony/tree/feature/02-init-env/src/demo_mvc/procedural',
@@ -18,7 +18,10 @@ $menu = array(
     //'Funcional'=>'./demo_mvc/funcional',
     '3. MVC'=>'https://github.com/wagnerpinheiro/treinamento-symfony/tree/feature/02-init-env/src/demo_mvc/mvc',
     '4. Symfony' => 'https://github.com/wagnerpinheiro/treinamento-symfony'
-  )
+  ),
+   'Docs' => array(
+       'Symfony Manual' => 'http://symfony.com/legacy/doc'
+   )
 );
 
 if(!$menu){

@@ -1,0 +1,16 @@
+propel:
+  _attributes:
+    package: lib.model
+    defaultIdMethod: native
+  departamentos:
+    _attributes: { phpName: Departamentos }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    departamento: { phpName: Departamento, type: VARCHAR, size: '60', required: false }
+  funcionarios:
+    _attributes: { phpName: Funcionarios }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    nome: { phpName: Nome, type: VARCHAR, size: '120', required: false }
+    email: { phpName: Email, type: VARCHAR, size: '120', required: false }
+    departamento_id: { phpName: DepartamentoId, type: INTEGER, size: '11', required: false, foreignTable: departamentos, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    nascimento: { phpName: Nascimento, type: DATE, required: false }
+    _indexes: { departamento_id: [departamento_id] }
