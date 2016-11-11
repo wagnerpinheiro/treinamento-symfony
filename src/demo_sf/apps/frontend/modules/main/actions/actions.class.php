@@ -19,11 +19,16 @@ class mainActions extends sfActions
   {
       //$this->forward('default', 'module');     
       $this->hello = 'Hello World!';
+      $c = new Criteria();
+      $this->funcionarios = FuncionariosPeer::doSelect($c);
+      //$this->funcionarios = FuncionariosPeer::doListFuncionarios();
   }
   
-  public function executeSave(sfWebRequest $request)
+  public function executeSaveFuncionario(sfWebRequest $request)
   {
-    
+    $nome = $request->getParameter('nome', 'anonimo');
+    $this->getResponse()->setContent('Usuario salvo: ' . $nome);    
+    return sfView::NONE;
   }
   
 }
