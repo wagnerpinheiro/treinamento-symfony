@@ -20,15 +20,31 @@ class mainActions extends sfActions
       //$this->forward('default', 'module');     
       $this->hello = 'Hello World!';
       $c = new Criteria();
-      $this->funcionarios = FuncionariosPeer::doSelect($c);
-      //$this->funcionarios = FuncionariosPeer::doListFuncionarios();
+      $c->addAscendingOrderByColumn(DepartamentosPeer::DEPARTAMENTO);
+      $this->departamentos = DepartamentosPeer::doSelect($c);
+      $this->funcionarios = FuncionariosPeer::doListFuncionarios();
+      return sfView::SUCCESS;
   }
   
   public function executeSaveFuncionario(sfWebRequest $request)
   {
-    $nome = $request->getParameter('nome', 'anonimo');
-    $this->getResponse()->setContent('Usuario salvo: ' . $nome);    
-    return sfView::NONE;
+    //exemplo funcional
+    $this->forwardUnless($request->getParameter('nome'), 'main', 'index');
+    $funcionario = new Funcionarios();
+    $funcionario->setNome($request->getParameter('nome'));
+    $funcionario->setEmail($request->getParameter('email'));
+    $funcionario->setDepartamentoId($request->getParameter('departamento_id'));
+    
+    $nascimento = $request->getParameter('nascimento');
+    if($nascimento){
+        $date = DateTime::createFromFormat('d/m/Y', $nascimento);
+        $nascimento = $date->format('Y-m-d');
+        $funcionario->setNascimento($nascimento);
+    }   
+    
+    $funcionario->save();    
+    
+    $this->forward('main', 'index');
   }
   
 }
