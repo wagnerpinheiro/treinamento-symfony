@@ -195,6 +195,35 @@ git checkout -b hotfix/05-my-controller
 
 ## 7. modulo admin
 
+funciona apenas com php 5.6, com o php 7 da erro na classe DOMDocument
+
+```
+vim config/propel.ini
+```
+
+```
+propel.addGenericAccessors = true
+propel.addGenericMutators = true
+``` 
+
+```
+php symfony propel:build-model
+php symfony propel:build-filters
+php symfony propel:build-forms
+
+php symfony propel:generate-admin frontend departamentos
+
+# http://localhost:81/demo_sf/web/frontend_dev.php/departamentos
+
+php symfony cc
+php symfony propel:generate-module frontend funcionario Funcionarios
+php symfony cc
+
+# http://187.191.101.141:81/demo_sf/web/frontend_dev.php/funcionarios
+
+vim apps/frontend/modules/funcionarios/actions/actions.class.php
+vim apps/frontend/modules/funcionarios/templates/indexSuccess.php
+```
 
 --------------
 
